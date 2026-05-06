@@ -198,27 +198,28 @@
 <section class="contact-main">
   <div class="contact-form-wrap">
     <h2>Send Us a Message</h2>
+    <form action="https://formspree.io/f/mykojbvq" method="POST">
     <div class="form-row">
       <div class="form-group">
         <label>First Name</label>
-        <input type="text" placeholder="First name">
+        <input type="text" name="first_name" placeholder="First name" required>
       </div>
       <div class="form-group">
         <label>Last Name</label>
-        <input type="text" placeholder="Last name">
+        <input type="text" name="last_name" placeholder="Last name" required>
       </div>
     </div>
     <div class="form-group">
       <label>Email</label>
-      <input type="email" placeholder="your@email.com">
+      <input type="email" name="email" placeholder="your@email.com" required>
     </div>
     <div class="form-group">
       <label>Organization (if applicable)</label>
-      <input type="text" placeholder="School, swim club, or company name">
+      <input type="text" name="organization" placeholder="School, swim club, or company name">
     </div>
     <div class="form-group">
       <label>I'm reaching out about...</label>
-      <select>
+      <select name="topic">
         <option value="">Select a topic</option>
         <option>Booking a Workshop</option>
         <option>Sponsoring an Event</option>
@@ -231,9 +232,10 @@
     </div>
     <div class="form-group">
       <label>Message</label>
-      <textarea placeholder="Tell us about your organization, what you're looking for, or how you'd like to get involved..."></textarea>
+      <textarea name="message" placeholder="Tell us about your organization, what you're looking for, or how you'd like to get involved..."></textarea>
     </div>
-    <button class="btn-primary form-submit">Send Message</button>
+    <button type="submit" class="btn-primary form-submit">Send Message</button>
+    </form>
   </div>
 
   <div class="contact-info">

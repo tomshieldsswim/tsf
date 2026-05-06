@@ -1292,23 +1292,24 @@
     </div>
     <h2 class="section-title">Contact Us</h2>
     <p>Whether you want to book a workshop, sponsor an event, or just learn more — we'd love to hear from you.</p>
+    <form action="https://formspree.io/f/mykojbvq" method="POST">
     <div class="form-row">
       <div class="form-group">
         <label>First Name</label>
-        <input type="text" placeholder="Tom">
+        <input type="text" name="first_name" placeholder="Tom">
       </div>
       <div class="form-group">
         <label>Last Name</label>
-        <input type="text" placeholder="Shields">
+        <input type="text" name="last_name" placeholder="Shields">
       </div>
     </div>
     <div class="form-group">
       <label>Email</label>
-      <input type="email" placeholder="you@example.com">
+      <input type="email" name="email" placeholder="you@example.com" required>
     </div>
     <div class="form-group">
       <label>I'm interested in...</label>
-      <select>
+      <select name="topic">
         <option>Booking a Workshop</option>
         <option>Sponsoring an Event</option>
         <option>Volunteering</option>
@@ -1318,9 +1319,10 @@
     </div>
     <div class="form-group">
       <label>Message</label>
-      <textarea placeholder="Tell us about your organization or how you'd like to get involved..."></textarea>
+      <textarea name="message" placeholder="Tell us about your organization or how you'd like to get involved..."></textarea>
     </div>
-    <button class="btn-primary" style="width:100%;text-align:center;">Send Message</button>
+    <button type="submit" class="btn-primary" style="width:100%;text-align:center;">Send Message</button>
+    </form>
   </div>
 </section>
 
