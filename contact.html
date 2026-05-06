@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Tom Shields Foundation</title>
+<meta name="description" content="Book a workshop, sponsor an event, or get in touch with the Tom Shields Foundation.">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .contact-hero {
+    background: var(--navy);
+    padding: 140px 80px 80px;
+    border-bottom: 3px solid var(--red);
+  }
+
+  .contact-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(60px, 7vw, 96px);
+    color: var(--white);
+    line-height: 0.95;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.3s;
+  }
+
+  .contact-hero p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 480px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.5s;
+  }
+
+  /* CONTACT MAIN */
+  .contact-main {
+    background: var(--off-white);
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  /* FORM */
+  .contact-form-wrap h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    margin-bottom: 32px;
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    font-weight: 500;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    background: var(--white);
+    border: 1.5px solid var(--light-gray);
+    border-radius: 2px;
+    padding: 14px 16px;
+    font-size: 14px;
+    color: var(--navy);
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus { border-color: var(--red); }
+
+  .form-group textarea { height: 140px; resize: none; }
+
+  .form-submit { width: 100%; text-align: center; margin-top: 8px; font-size: 14px; padding: 18px; }
+
+  /* CONTACT INFO */
+  .contact-info { position: sticky; top: 100px; }
+
+  .info-card {
+    background: var(--white);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+
+  .info-card-header {
+    background: var(--navy);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .info-card-header span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--white);
+    letter-spacing: 1px;
+  }
+
+  .info-card-body { padding: 24px; }
+
+  .info-card-body p {
+    font-size: 14px;
+    color: #4A5568;
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 12px;
+  }
+
+  .info-card-body p:last-child { margin-bottom: 0; }
+
+  .info-card-body strong { color: var(--navy); font-weight: 500; }
+
+  .info-card-body a { color: var(--red); text-decoration: none; }
+  .info-card-body a:hover { text-decoration: underline; }
+
+  .info-direct {
+    background: var(--navy);
+    border-radius: 2px;
+    padding: 28px 24px;
+    margin-bottom: 16px;
+  }
+
+  .info-direct h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--white);
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+
+  .info-direct-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .info-direct-item:last-child { margin-bottom: 0; }
+
+  .info-direct-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    font-weight: 500;
+    min-width: 60px;
+  }
+
+  .info-direct-value {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+  }
+
+  @media (max-width: 900px) {
+    .contact-hero { padding: 120px 24px 60px; }
+    .contact-main { grid-template-columns: 1fr; padding: 60px 24px; }
+    .contact-info { position: static; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<section class="contact-hero">
+  <div class="section-eyebrow" style="margin-bottom:20px;">
+    <div class="section-eyebrow-line"></div>
+    <span style="color:rgba(255,255,255,0.4);">Get in Touch</span>
+  </div>
+  <h1>Let's Talk</h1>
+  <p>Whether you want to book a workshop, sponsor an event, volunteer, or just learn more — we'd love to hear from you.</p>
+</section>
+
+<section class="contact-main">
+  <div class="contact-form-wrap">
+    <h2>Send Us a Message</h2>
+    <div class="form-row">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" placeholder="First name">
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" placeholder="Last name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" placeholder="your@email.com">
+    </div>
+    <div class="form-group">
+      <label>Organization (if applicable)</label>
+      <input type="text" placeholder="School, swim club, or company name">
+    </div>
+    <div class="form-group">
+      <label>I'm reaching out about...</label>
+      <select>
+        <option value="">Select a topic</option>
+        <option>Booking a Workshop</option>
+        <option>Sponsoring an Event</option>
+        <option>Swim-a-Thon / Events</option>
+        <option>Volunteering</option>
+        <option>Donating</option>
+        <option>Media / Press</option>
+        <option>General Inquiry</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Message</label>
+      <textarea placeholder="Tell us about your organization, what you're looking for, or how you'd like to get involved..."></textarea>
+    </div>
+    <button class="btn-primary form-submit">Send Message</button>
+  </div>
+
+  <div class="contact-info">
+    <div class="info-card">
+      <div class="info-card-header">
+        <span>🏊 Book a Workshop</span>
+      </div>
+      <div class="info-card-body">
+        <p>Tom and trained facilitators deliver mental health education workshops for youth athletes at schools, swim clubs, and sports organizations.</p>
+        <p><strong>Who it's for:</strong> Teams, clubs, schools, athletic departments, and youth sports organizations.</p>
+        <p><strong>Format:</strong> In-person, 60–90 minutes. Scalable from small teams to large groups.</p>
+        <p>Use the form to get in touch and we'll follow up within 48 hours.</p>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-header">
+        <span>🤝 Sponsor an Event</span>
+      </div>
+      <div class="info-card-body">
+        <p>Sponsoring a TSF swim-a-thon or charity meet is a tax-deductible contribution that puts your brand in front of an engaged community.</p>
+        <p>Packages start at $500. Custom opportunities available.</p>
+        <p><a href="/events.html">See sponsorship tiers →</a></p>
+      </div>
+    </div>
+
+    <div class="info-direct">
+      <h3>Direct Contact</h3>
+      <div class="info-direct-item">
+        <span class="info-direct-label">Email</span>
+        <span class="info-direct-value">tomshieldsswim@gmail.com</span>
+      </div>
+      <div class="info-direct-item">
+        <span class="info-direct-label">Address</span>
+        <span class="info-direct-value">184 Harbor Oaks Circle<br>Santa Cruz, CA 95062</span>
+      </div>
+      <div class="info-direct-item">
+        <span class="info-direct-label">Status</span>
+        <span class="info-direct-value">California 501(c)(3) · Federal determination pending</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="/js/components.js"></script>
+<script>Components.init('contact');</script>
+</body>
+</html>
