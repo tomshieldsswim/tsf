@@ -34,11 +34,17 @@ nav {
 /* Dropdown */
 .nav-drop { position: relative; }
 .nav-drop-menu {
-  display: none; position: absolute; top: calc(100% + 3px); left: 0;
+  display: none; position: absolute; top: 100%; left: -16px;
   background: var(--navy); border-top: 2px solid var(--red); min-width: 220px;
   flex-direction: column; z-index: 300; box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  padding-top: 8px;
+}
+/* invisible bridge so mouse can travel from link to menu without losing hover */
+.nav-drop::after {
+  content: ''; position: absolute; top: 100%; left: -16px; right: -16px; height: 12px;
 }
 .nav-drop:hover .nav-drop-menu { display: flex; }
+.nav-drop > a { padding: 8px 16px; margin: -8px -16px; }
 .nav-links li.nav-drop .nav-drop-menu a {
   padding: 13px 20px; font-size: 13px; color: rgba(255,255,255,0.6);
   text-decoration: none; display: block;
