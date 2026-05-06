@@ -4,499 +4,107 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Donate — Tom Shields Foundation</title>
-<meta name="description" content="Support the Tom Shields Foundation. Every dollar funds mental health education workshops for youth athletes.">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<style>
-  .donate-hero {
-    background: var(--navy);
-    padding: 140px 80px 80px;
-    border-bottom: 3px solid var(--red);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  .donate-hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(60px, 7vw, 96px);
-    color: var(--white);
-    line-height: 0.95;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.3s;
-  }
-
-  .donate-hero h1 em {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: var(--red);
-  }
-
-  .donate-hero p {
-    font-size: 17px;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.7;
-    font-weight: 300;
-    max-width: 400px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.5s;
-  }
-
-  .donate-hero-impact {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.6s;
-  }
-
-  .impact-row {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.07);
-    border-left: 3px solid var(--red);
-    padding: 20px 24px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    border-radius: 0 2px 2px 0;
-  }
-
-  .impact-amount {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 36px;
-    color: var(--white);
-    line-height: 1;
-    flex-shrink: 0;
-    min-width: 80px;
-  }
-
-  .impact-desc {
-    font-size: 14px;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.5;
-    font-weight: 300;
-  }
-
-  /* DONATE MAIN */
-  .donate-main {
-    background: var(--off-white);
-    padding: 80px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: start;
-  }
-
-  .donate-form-section h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 40px;
-    color: var(--navy);
-    letter-spacing: 1px;
-    margin-bottom: 32px;
-  }
-
-  /* AMOUNT SELECTOR */
-  .amount-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-bottom: 16px;
-  }
-
-  .amount-btn {
-    background: var(--white);
-    border: 1.5px solid var(--light-gray);
-    border-radius: 2px;
-    padding: 18px 12px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-family: 'DM Sans', sans-serif;
-  }
-
-  .amount-btn:hover {
-    border-color: var(--red);
-  }
-
-  .amount-btn.selected {
-    border-color: var(--red);
-    border-width: 2px;
-    background: rgba(200,16,46,0.04);
-  }
-
-  .amount-btn .amount {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px;
-    color: var(--navy);
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-
-  .amount-btn.selected .amount { color: var(--red); }
-
-  .amount-btn .impact {
-    font-size: 11px;
-    color: var(--gray);
-    letter-spacing: 0.5px;
-    line-height: 1.3;
-  }
-
-  .custom-amount {
-    background: var(--white);
-    border: 1.5px solid var(--light-gray);
-    border-radius: 2px;
-    padding: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 24px;
-  }
-
-  .custom-amount span {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 24px;
-    color: var(--gray);
-  }
-
-  .custom-amount input {
-    border: none;
-    outline: none;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 24px;
-    color: var(--navy);
-    width: 100%;
-    background: transparent;
-  }
-
-  .custom-amount input::placeholder { color: var(--light-gray); }
-
-  .frequency-toggle {
-    display: flex;
-    gap: 0;
-    margin-bottom: 28px;
-    border: 1.5px solid var(--light-gray);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-
-  .freq-btn {
-    flex: 1;
-    padding: 12px;
-    text-align: center;
-    background: var(--white);
-    border: none;
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--gray);
-    transition: all 0.2s;
-  }
-
-  .freq-btn.selected {
-    background: var(--navy);
-    color: var(--white);
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-
-  .form-group label {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gray);
-    font-weight: 500;
-  }
-
-  .form-group input {
-    background: var(--white);
-    border: 1.5px solid var(--light-gray);
-    border-radius: 2px;
-    padding: 14px 16px;
-    font-size: 14px;
-    color: var(--navy);
-    font-family: 'DM Sans', sans-serif;
-    outline: none;
-    transition: border-color 0.2s;
-    width: 100%;
-  }
-
-  .form-group input:focus { border-color: var(--red); }
-
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-  .donate-submit {
-    width: 100%;
-    text-align: center;
-    padding: 20px;
-    font-size: 15px;
-    margin-top: 8px;
-    background: var(--red);
-    color: var(--white);
-    border: none;
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    border-radius: 2px;
-    transition: background 0.2s;
-  }
-
-  .donate-submit:hover { background: var(--red-dark); }
-
-  .donate-note {
-    font-size: 12px;
-    color: var(--gray);
-    text-align: center;
-    margin-top: 12px;
-    line-height: 1.5;
-  }
-
-  /* SIDEBAR */
-  .donate-sidebar { position: sticky; top: 100px; }
-
-  .sidebar-block {
-    background: var(--white);
-    border-radius: 2px;
-    padding: 32px;
-    margin-bottom: 16px;
-  }
-
-  .sidebar-block h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    color: var(--navy);
-    letter-spacing: 1px;
-    margin-bottom: 16px;
-  }
-
-  .sidebar-block p {
-    font-size: 14px;
-    color: #4A5568;
-    line-height: 1.7;
-    font-weight: 300;
-    margin-bottom: 12px;
-  }
-
-  .sidebar-block p:last-child { margin-bottom: 0; }
-
-  .sidebar-block strong { color: var(--navy); font-weight: 500; }
-
-  .other-ways {
-    background: var(--navy);
-    border-radius: 2px;
-    padding: 32px;
-  }
-
-  .other-ways h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    color: var(--white);
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-  }
-
-  .other-way {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .other-way:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-
-  .other-way-icon { font-size: 24px; flex-shrink: 0; }
-
-  .other-way-text h4 {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 4px;
-  }
-
-  .other-way-text p {
-    font-size: 13px;
-    color: rgba(255,255,255,0.35);
-    line-height: 1.5;
-    font-weight: 300;
-  }
-
-  .other-way-text a { color: var(--red); text-decoration: none; }
-
-  @media (max-width: 900px) {
-    .donate-hero { grid-template-columns: 1fr; padding: 120px 24px 60px; gap: 40px; }
-    .donate-main { grid-template-columns: 1fr; padding: 60px 24px; }
-    .donate-sidebar { position: static; }
-    .form-row { grid-template-columns: 1fr; }
-    .amount-grid { grid-template-columns: 1fr 1fr; }
-  }
-</style>
 </head>
 <body>
-<div id="nav-placeholder"></div>
+<nav>
+  <a href="index.html" class="nav-logo"><span class="nav-logo-name">Tom Shields Foundation</span><span class="nav-logo-tag">Building Resilience · Changing Minds · Saving Lives</span></a>
+  <ul class="nav-links">
+    <li class="nav-drop">
+      <a href="blog.html">Resources ▾</a>
+      <div class="nav-drop-menu">
+        <a href="blog.html#athletes">🏊 Athletes</a>
+        <a href="blog.html#coaches">🎽 Coaches</a>
+        <a href="blog.html#parents">👨‍👩‍👧 Parents</a>
+        <a href="blog.html#schools">🏫 Schools &amp; Organizations</a>
+      </div>
+    </li>
+    <li><a href="story.html">Tom's Story</a></li>
+    <li><a href="mission.html">Our Mission</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="donate.html" class="nav-cta">Donate</a></li>
+  </ul>
+</nav>
 
-<section class="donate-hero">
+<section style="background:var(--navy);padding:140px 80px 80px;border-bottom:3px solid var(--red);display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
   <div>
-    <div class="section-eyebrow" style="margin-bottom:20px;">
-      <div class="section-eyebrow-line"></div>
-      <span style="color:rgba(255,255,255,0.4);">Donate</span>
-    </div>
-    <h1>Fund the<br><em>Mission.</em></h1>
-    <p>Every dollar goes toward delivering mental health education to youth athletes — and funding scholarships for those who need it most.</p>
+    <div class="eyebrow eyebrow-white anim anim-1"><div class="eyebrow-line"></div><span>Donate</span></div>
+    <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(60px,7vw,96px);color:var(--white);line-height:0.95;letter-spacing:1px;margin-bottom:18px;" class="anim anim-2">Fund the<br><span style="font-family:'Playfair Display',serif;font-style:italic;color:var(--red);">Mission.</span></h1>
+    <p style="font-size:16px;color:rgba(255,255,255,0.5);line-height:1.7;font-weight:300;max-width:400px;" class="anim anim-3">Every dollar goes toward delivering mental health education to youth athletes — and funding scholarships for those who need it most.</p>
   </div>
-  <div class="donate-hero-impact">
-    <div class="impact-row">
-      <div class="impact-amount">$25</div>
-      <div class="impact-desc">Supports one athlete through a full mental health workshop</div>
+  <div style="display:flex;flex-direction:column;gap:10px;" class="anim anim-3">
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-left:3px solid var(--red);padding:18px 22px;display:flex;align-items:center;gap:20px;border-radius:0 2px 2px 0;"><div style="font-family:'Bebas Neue',sans-serif;font-size:34px;color:var(--white);line-height:1;flex-shrink:0;min-width:72px;">5</div><div style="font-size:13px;color:rgba(255,255,255,0.4);font-weight:300;">Supports one athlete through a full mental health workshop</div></div>
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-left:3px solid var(--red);padding:18px 22px;display:flex;align-items:center;gap:20px;border-radius:0 2px 2px 0;"><div style="font-family:'Bebas Neue',sans-serif;font-size:34px;color:var(--white);line-height:1;flex-shrink:0;min-width:72px;">00</div><div style="font-size:13px;color:rgba(255,255,255,0.4);font-weight:300;">Sponsors a full school or club visit for an entire team</div></div>
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-left:3px solid var(--red);padding:18px 22px;display:flex;align-items:center;gap:20px;border-radius:0 2px 2px 0;"><div style="font-family:'Bebas Neue',sans-serif;font-size:34px;color:var(--white);line-height:1;flex-shrink:0;min-width:72px;">00</div><div style="font-size:13px;color:rgba(255,255,255,0.4);font-weight:300;">Funds a full youth scholarship for programming access</div></div>
+  </div>
+</section>
+<section style="background:var(--off-white);padding:80px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
+  <div>
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--navy);letter-spacing:1px;margin-bottom:28px;">Make a Donation</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;" id="amountGrid">
+      <button onclick="selectAmt(this,'25')" style="background:var(--white);border:1.5px solid var(--light-gray);border-radius:2px;padding:16px 8px;text-align:center;cursor:pointer;font-family:'DM Sans',sans-serif;transition:border-color 0.2s;"><div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--navy);line-height:1;margin-bottom:4px;">5</div><div style="font-size:11px;color:var(--gray);">1 athlete workshop</div></button>
+      <button onclick="selectAmt(this,'100')" style="background:var(--white);border:2px solid var(--red);border-radius:2px;padding:16px 8px;text-align:center;cursor:pointer;font-family:'DM Sans',sans-serif;" id="defaultAmt"><div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--red);line-height:1;margin-bottom:4px;">00</div><div style="font-size:11px;color:var(--gray);">Full school visit</div></button>
+      <button onclick="selectAmt(this,'250')" style="background:var(--white);border:1.5px solid var(--light-gray);border-radius:2px;padding:16px 8px;text-align:center;cursor:pointer;font-family:'DM Sans',sans-serif;transition:border-color 0.2s;"><div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--navy);line-height:1;margin-bottom:4px;">50</div><div style="font-size:11px;color:var(--gray);">Multiple workshops</div></button>
+      <button onclick="selectAmt(this,'500')" style="background:var(--white);border:1.5px solid var(--light-gray);border-radius:2px;padding:16px 8px;text-align:center;cursor:pointer;font-family:'DM Sans',sans-serif;transition:border-color 0.2s;"><div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--navy);line-height:1;margin-bottom:4px;">00</div><div style="font-size:11px;color:var(--gray);">Youth scholarship</div></button>
+      <button onclick="selectAmt(this,'1000')" style="background:var(--white);border:1.5px solid var(--light-gray);border-radius:2px;padding:16px 8px;text-align:center;cursor:pointer;font-family:'DM Sans',sans-serif;transition:border-color 0.2s;"><div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--navy);line-height:1;margin-bottom:4px;">K</div><div style="font-size:11px;color:var(--gray);">Event sponsorship</div></button>
+      <button onclick="selectAmt(this,'')" style="background:var(--white);border:1.5px solid var(--light-gray);border-radius:2px;padding:16px 8px;text-align:center;cursor:pointer;font-family:'DM Sans',sans-serif;transition:border-color 0.2s;"><div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--navy);line-height:1;margin-bottom:4px;">Other</div><div style="font-size:11px;color:var(--gray);">Custom amount</div></button>
     </div>
-    <div class="impact-row">
-      <div class="impact-amount">$100</div>
-      <div class="impact-desc">Sponsors a full school or club visit for an entire team</div>
+    <div style="background:var(--white);border:1.5px solid var(--light-gray);border-radius:2px;padding:14px 16px;display:flex;align-items:center;gap:8px;margin-bottom:20px;"><span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--gray);">$</span><input id="customAmt" type="number" placeholder="Enter amount" style="border:none;outline:none;font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--navy);width:100%;background:transparent;"></div>
+    <form action="https://formspree.io/f/mykojbvq" method="POST">
+      <input type="hidden" name="type" value="donation">
+      <input type="hidden" name="amount" id="amtField" value="00">
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" name="first_name" placeholder="First name"></div>
+        <div class="form-group"><label>Last Name</label><input type="text" name="last_name" placeholder="Last name"></div>
+      </div>
+      <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required></div>
+      <button type="submit" id="donateBtn" class="btn btn-red" style="width:100%;text-align:center;padding:18px;font-size:14px;">Donate 00</button>
+      <p style="font-size:11px;color:var(--gray);text-align:center;margin-top:10px;line-height:1.5;">🔒 Secure · Tax-deductible · California 501(c)(3)<br>You'll receive a receipt for your records.</p>
+    </form>
+  </div>
+  <div style="position:sticky;top:100px;">
+    <div style="background:var(--white);border-radius:2px;padding:28px;margin-bottom:14px;">
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--navy);letter-spacing:1px;margin-bottom:14px;">Your Impact</h3>
+      <p class="body-text"><strong>100% of donations</strong> go toward programming, scholarships, and operations.</p>
+      <p class="body-text">Donations are tax-deductible to the fullest extent permitted by law.</p>
     </div>
-    <div class="impact-row">
-      <div class="impact-amount">$500</div>
-      <div class="impact-desc">Funds a full youth scholarship for programming access</div>
-    </div>
-    <div class="impact-row">
-      <div class="impact-amount">$2.5K</div>
-      <div class="impact-desc">Sponsors a swim-a-thon event and funds multiple workshops</div>
+    <div style="background:var(--navy);border-radius:2px;padding:28px;">
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--white);letter-spacing:1px;margin-bottom:18px;">Other Ways to Give</h3>
+      <div style="border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:14px;margin-bottom:14px;"><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px;">🏊 Swim-a-Thon Pledges</div><p style="font-size:13px;color:rgba(255,255,255,0.35);font-weight:300;"><a href="events.html" style="color:var(--red);">See upcoming events →</a></p></div>
+      <div style="border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:14px;margin-bottom:14px;"><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px;">🤝 Event Sponsorship</div><p style="font-size:13px;color:rgba(255,255,255,0.35);font-weight:300;">Packages from 00. <a href="contact.html" style="color:var(--red);">Get in touch →</a></p></div>
+      <div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px;">📬 Check or Wire</div><p style="font-size:13px;color:rgba(255,255,255,0.35);font-weight:300;">Email us at staff@tomshieldsfoundation.org</p></div>
     </div>
   </div>
 </section>
-
-<section class="donate-main">
-  <div class="donate-form-section">
-    <h2>Make a Donation</h2>
-
-    <div class="frequency-toggle">
-      <button class="freq-btn selected" onclick="document.querySelectorAll('.freq-btn').forEach(b=>b.classList.remove('selected'));this.classList.add('selected')">One-Time</button>
-      <button class="freq-btn" onclick="document.querySelectorAll('.freq-btn').forEach(b=>b.classList.remove('selected'));this.classList.add('selected')">Monthly</button>
-      <button class="freq-btn" onclick="document.querySelectorAll('.freq-btn').forEach(b=>b.classList.remove('selected'));this.classList.add('selected')">Annual</button>
-    </div>
-
-    <div class="amount-grid">
-      <div class="amount-btn" onclick="selectAmount(this)">
-        <div class="amount">$25</div>
-        <div class="impact">1 athlete workshop</div>
-      </div>
-      <div class="amount-btn selected" onclick="selectAmount(this)">
-        <div class="amount">$100</div>
-        <div class="impact">Full school visit</div>
-      </div>
-      <div class="amount-btn" onclick="selectAmount(this)">
-        <div class="amount">$250</div>
-        <div class="impact">Multiple workshops</div>
-      </div>
-      <div class="amount-btn" onclick="selectAmount(this)">
-        <div class="amount">$500</div>
-        <div class="impact">Youth scholarship</div>
-      </div>
-      <div class="amount-btn" onclick="selectAmount(this)">
-        <div class="amount">$1K</div>
-        <div class="impact">Event sponsorship</div>
-      </div>
-      <div class="amount-btn" onclick="selectAmount(this)">
-        <div class="amount">$2.5K</div>
-        <div class="impact">Swim-a-thon sponsor</div>
-      </div>
-    </div>
-
-    <div class="custom-amount">
-      <span>$</span>
-      <input type="number" placeholder="Custom amount">
-    </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label>First Name</label>
-        <input type="text" placeholder="First name">
-      </div>
-      <div class="form-group">
-        <label>Last Name</label>
-        <input type="text" placeholder="Last name">
-      </div>
-    </div>
-    <div class="form-group">
-      <label>Email</label>
-      <input type="email" placeholder="your@email.com">
-    </div>
-    <div class="form-group">
-      <label>Card Number</label>
-      <input type="text" placeholder="•••• •••• •••• ••••">
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label>Expiration</label>
-        <input type="text" placeholder="MM / YY">
-      </div>
-      <div class="form-group">
-        <label>CVC</label>
-        <input type="text" placeholder="•••">
-      </div>
-    </div>
-
-    <button class="donate-submit">Donate $100</button>
-    <p class="donate-note">🔒 Secure donation · Tax-deductible · California 501(c)(3)<br>You'll receive a receipt for your records.</p>
-  </div>
-
-  <div class="donate-sidebar">
-    <div class="sidebar-block">
-      <h3>Your Impact</h3>
-      <p>The Tom Shields Foundation is built to be self-sustaining — swim events fund the workshops, workshops change lives. Your donation accelerates that flywheel.</p>
-      <p><strong>100% of donations</strong> go toward programming, scholarships, and operations. No middlemen, no overhead bloat.</p>
-      <p>Donations are tax-deductible to the fullest extent permitted by law. The Tom Shields Foundation is a California 501(c)(3) nonprofit public benefit corporation.</p>
-    </div>
-
-    <div class="other-ways">
-      <h3>Other Ways to Give</h3>
-      <div class="other-way">
-        <div class="other-way-icon">🏊</div>
-        <div class="other-way-text">
-          <h4>Swim-a-Thon Pledges</h4>
-          <p>Pledge a swimmer in one of our upcoming events. <a href="events.html">See events →</a></p>
-        </div>
-      </div>
-      <div class="other-way">
-        <div class="other-way-icon">🤝</div>
-        <div class="other-way-text">
-          <h4>Event Sponsorship</h4>
-          <p>Sponsor a swim-a-thon or charity meet. Packages from $500. <a href="contact.html">Get in touch →</a></p>
-        </div>
-      </div>
-      <div class="other-way">
-        <div class="other-way-icon">📬</div>
-        <div class="other-way-text">
-          <h4>Check or Wire</h4>
-          <p>Contact us directly at <a href="mailto:tomshieldsswim@gmail.com">tomshieldsswim@gmail.com</a> to arrange a gift by check or wire transfer.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div id="footer-placeholder"></div>
-<script src="components.js"></script>
 <script>
-  Components.init('donate');
-  function selectAmount(el) {
-    document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('selected'));
-    el.classList.add('selected');
-    const amt = el.querySelector('.amount').textContent;
-    document.querySelector('.donate-submit').textContent = 'Donate ' + amt;
-  }
+function selectAmt(el, val) {
+  document.querySelectorAll("#amountGrid button").forEach(b => {
+    b.style.border = "1.5px solid var(--light-gray)";
+    b.querySelector("div").style.color = "var(--navy)";
+  });
+  el.style.border = "2px solid var(--red)";
+  el.querySelector("div").style.color = "var(--red)";
+  document.getElementById("customAmt").value = val;
+  document.getElementById("amtField").value = val ? "$" + val : "custom";
+  document.getElementById("donateBtn").textContent = val ? "Donate $" + (val == "1000" ? "1,000" : val) : "Donate Custom Amount";
+}
 </script>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="index.html" class="nav-logo"><span class="nav-logo-name">Tom Shields Foundation</span><span class="nav-logo-tag">Building Resilience · Changing Minds · Saving Lives</span></a>
+      <p class="footer-brand-desc">A California 501(c)(3) nonprofit delivering mental health education to youth athletes through community swim events and workshops.</p>
+      <p class="footer-contact">Santa Cruz, CA · staff@tomshieldsfoundation.org</p>
+    </div>
+    <div class="footer-col"><h4>Foundation</h4><ul><li><a href="mission.html">Our Mission</a></li><li><a href="story.html">Tom's Story</a></li><li><a href="mission.html">The Workshop</a></li><li><a href="contact.html">Leadership</a></li></ul></div>
+    <div class="footer-col"><h4>Get Involved</h4><ul><li><a href="events.html">Swim-a-Thons</a></li><li><a href="events.html">Charity Meets</a></li><li><a href="donate.html">Donate</a></li><li><a href="contact.html">Book a Workshop</a></li><li><a href="contact.html">Sponsor an Event</a></li></ul></div>
+    <div class="footer-col"><h4>Resources</h4><ul><li><a href="blog.html">Blog</a></li><li><a href="blog.html">For Coaches</a></li><li><a href="blog.html">For Parents</a></li><li><a href="contact.html">Crisis Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span class="footer-copy">© 2026 Tom Shields Foundation. All rights reserved.</span><span class="footer-501">California 501(c)(3) · Federal determination pending</span></div>
+</footer>
 </body>
 </html>

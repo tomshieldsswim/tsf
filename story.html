@@ -4,398 +4,169 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tom's Story — Tom Shields Foundation</title>
-<meta name="description" content="Two-time Olympic gold medalist Tom Shields shares his story of surviving a suicide attempt in 2018 and why he founded the Tom Shields Foundation.">
+<meta name="description" content="Two-time Olympic gold medalist Tom Shields shares his story of surviving a suicide attempt and why he founded the Tom Shields Foundation.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-  .story-hero {
-    background: var(--navy);
-    padding: 140px 80px 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: end;
-    overflow: hidden;
-  }
+  .story-hero { background: var(--navy); padding: 140px 80px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; border-bottom: 3px solid var(--red); }
+  .story-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(64px, 8vw, 108px); color: var(--white); line-height: 0.9; letter-spacing: 1px; margin-bottom: 20px; }
+  .story-hero h1 em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--red); display: block; }
+  .story-hero-lead { font-size: 17px; color: rgba(255,255,255,0.5); line-height: 1.7; font-weight: 300; max-width: 420px; padding-bottom: 60px; }
+  .story-hero-img { background: linear-gradient(180deg, var(--navy-mid), #040b12); min-height: 480px; display: flex; align-items: center; justify-content: center; border-radius: 2px 2px 0 0; }
+  .story-hero-img span { font-family: 'Bebas Neue', sans-serif; font-size: 12px; letter-spacing: 3px; color: rgba(255,255,255,0.12); }
 
-  .story-hero-content { padding-bottom: 80px; }
+  .pull-quote { background: var(--red); padding: 44px 80px; }
+  .pull-quote blockquote { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(18px, 2.2vw, 28px); color: var(--white); line-height: 1.4; max-width: 780px; margin: 0 auto; text-align: center; }
 
-  .story-hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(64px, 8vw, 108px);
-    color: var(--white);
-    line-height: 0.9;
-    letter-spacing: 1px;
-    margin-bottom: 24px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.3s;
-  }
-
-  .story-hero h1 em {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: var(--red);
-    display: block;
-  }
-
-  .story-hero-lead {
-    font-size: 18px;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.7;
-    font-weight: 300;
-    max-width: 440px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.5s;
-  }
-
-  .story-hero-image {
-    align-self: stretch;
-    background: linear-gradient(180deg, var(--navy-mid) 0%, #050d15 100%);
-    min-height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    border-radius: 2px 2px 0 0;
-  }
-
-  .story-hero-image::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--red);
-  }
-
-  .photo-placeholder {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 13px;
-    letter-spacing: 3px;
-    color: rgba(255,255,255,0.15);
-  }
-
-  /* PULL QUOTE STRIP */
-  .pull-quote-strip {
-    background: var(--red);
-    padding: 48px 80px;
-  }
-
-  .pull-quote-strip blockquote {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: clamp(20px, 2.5vw, 30px);
-    color: var(--white);
-    line-height: 1.4;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  /* NARRATIVE */
-  .narrative-section {
-    background: var(--white);
-    padding: 100px 80px;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-
-  .narrative-body p {
-    font-size: 17px;
-    color: #3D4A5C;
-    line-height: 1.85;
-    font-weight: 300;
-    margin-bottom: 24px;
-  }
-
+  .narrative { background: var(--white); padding: 100px 80px; display: grid; grid-template-columns: 2fr 1fr; gap: 72px; align-items: start; }
+  .narrative-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: 34px; color: var(--navy); letter-spacing: 1px; margin: 36px 0 14px; }
+  .narrative-body h2:first-child { margin-top: 0; }
+  .narrative-body p { font-size: 16px; color: #3D4A5C; line-height: 1.85; font-weight: 300; margin-bottom: 16px; }
   .narrative-body p strong { color: var(--navy); font-weight: 500; }
 
-  .narrative-body h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 36px;
-    color: var(--navy);
-    letter-spacing: 1px;
-    margin: 40px 0 16px;
-  }
-
   .narrative-sidebar { position: sticky; top: 100px; }
+  .sidebar-stat { background: var(--off-white); border-left: 3px solid var(--red); padding: 24px 20px; margin-bottom: 14px; border-radius: 0 2px 2px 0; }
+  .sidebar-stat .num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--red); line-height: 1; margin-bottom: 4px; }
+  .sidebar-stat .lbl { font-size: 13px; color: var(--gray); line-height: 1.5; font-weight: 300; }
+  .sidebar-cta { background: var(--navy); padding: 28px 24px; border-radius: 2px; margin-top: 6px; }
+  .sidebar-cta p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; font-weight: 300; margin-bottom: 18px; }
 
-  .sidebar-stat {
-    background: var(--off-white);
-    border-left: 3px solid var(--red);
-    padding: 28px 24px;
-    margin-bottom: 20px;
-    border-radius: 0 2px 2px 0;
-  }
+  .crisis { background: var(--navy); padding: 56px 80px; border-top: 3px solid var(--red); }
+  .crisis-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+  .crisis h3 { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--white); letter-spacing: 1px; margin-bottom: 8px; }
+  .crisis p { font-size: 14px; color: rgba(255,255,255,0.4); font-weight: 300; max-width: 380px; line-height: 1.6; }
+  .crisis-numbers { display: flex; gap: 16px; flex-wrap: wrap; }
+  .crisis-num { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); padding: 16px 22px; border-radius: 2px; text-align: center; }
+  .crisis-num .hotline { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--white); letter-spacing: 1px; margin-bottom: 4px; }
+  .crisis-num .hotline-name { font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 1.5px; text-transform: uppercase; }
 
-  .sidebar-stat .number {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 52px;
-    color: var(--red);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-
-  .sidebar-stat .label {
-    font-size: 13px;
-    color: var(--gray);
-    line-height: 1.5;
-    font-weight: 300;
-  }
-
-  .sidebar-cta {
-    background: var(--navy);
-    padding: 32px 28px;
-    border-radius: 2px;
-    margin-top: 8px;
-  }
-
-  .sidebar-cta p {
-    font-size: 14px;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.6;
-    font-weight: 300;
-    margin-bottom: 20px;
-  }
-
-  .sidebar-cta .btn-primary { width: 100%; text-align: center; }
-
-  /* CRISIS RESOURCES */
-  .crisis-section {
-    background: var(--navy);
-    padding: 64px 80px;
-    border-top: 3px solid var(--red);
-  }
-
-  .crisis-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 48px;
-    flex-wrap: wrap;
-  }
-
-  .crisis-inner h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    color: var(--white);
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-  }
-
-  .crisis-inner p {
-    font-size: 14px;
-    color: rgba(255,255,255,0.45);
-    font-weight: 300;
-    max-width: 400px;
-    line-height: 1.6;
-  }
-
-  .crisis-numbers { display: flex; gap: 24px; flex-wrap: wrap; }
-
-  .crisis-number {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    padding: 16px 24px;
-    border-radius: 2px;
-    text-align: center;
-  }
-
-  .crisis-number .hotline {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 24px;
-    color: var(--white);
-    letter-spacing: 1px;
-    margin-bottom: 4px;
-  }
-
-  .crisis-number .hotline-name {
-    font-size: 11px;
-    color: rgba(255,255,255,0.35);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
-
-  /* FOUNDATION BRIDGE */
-  .foundation-bridge {
-    background: var(--off-white);
-    padding: 100px 80px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  .foundation-bridge h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(40px, 4vw, 60px);
-    color: var(--navy);
-    line-height: 1;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-  }
-
-  .foundation-bridge h2 span { color: var(--red); }
-
-  .foundation-bridge p {
-    font-size: 16px;
-    color: #4A5568;
-    line-height: 1.8;
-    font-weight: 300;
-    margin-bottom: 16px;
-  }
-
-  .bridge-actions { display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap; }
-
-  .bridge-image {
-    background: var(--navy);
-    aspect-ratio: 4/3;
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  .bridge { background: var(--off-white); padding: 100px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+  .bridge h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 4vw, 56px); color: var(--navy); letter-spacing: 1px; margin-bottom: 18px; }
+  .bridge h2 span { color: var(--red); }
+  .bridge-img { background: var(--navy); aspect-ratio: 4/3; border-radius: 2px; display: flex; align-items: center; justify-content: center; }
+  .bridge-img span { font-family: 'Bebas Neue', sans-serif; font-size: 12px; letter-spacing: 3px; color: rgba(255,255,255,0.12); }
+  .bridge-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
 
   @media (max-width: 900px) {
-    .story-hero { grid-template-columns: 1fr; padding: 120px 24px 0; gap: 40px; }
-    .story-hero-image { min-height: 300px; }
-    .pull-quote-strip { padding: 48px 24px; }
-    .narrative-section { grid-template-columns: 1fr; padding: 60px 24px; }
+    .story-hero { grid-template-columns: 1fr; padding: 120px 24px 0; }
+    .story-hero-lead { padding-bottom: 40px; }
+    .story-hero-img { min-height: 280px; }
+    .pull-quote { padding: 44px 24px; }
+    .narrative { grid-template-columns: 1fr; padding: 60px 24px; }
     .narrative-sidebar { position: static; }
-    .crisis-section { padding: 48px 24px; }
-    .foundation-bridge { grid-template-columns: 1fr; padding: 60px 24px; }
+    .crisis { padding: 48px 24px; }
+    .bridge { grid-template-columns: 1fr; padding: 60px 24px; }
   }
 </style>
 </head>
 <body>
-<div id="nav-placeholder"></div>
 
-<!-- HERO -->
+<nav>
+  <a href="index.html" class="nav-logo"><span class="nav-logo-name">Tom Shields Foundation</span><span class="nav-logo-tag">Building Resilience · Changing Minds · Saving Lives</span></a>
+  <ul class="nav-links">
+    <li class="nav-drop">
+      <a href="blog.html">Resources ▾</a>
+      <div class="nav-drop-menu">
+        <a href="blog.html#athletes">🏊 Athletes</a>
+        <a href="blog.html#coaches">🎽 Coaches</a>
+        <a href="blog.html#parents">👨‍👩‍👧 Parents</a>
+        <a href="blog.html#schools">🏫 Schools &amp; Organizations</a>
+      </div>
+    </li>
+    <li><a href="story.html" class="active">Tom's Story</a></li>
+    <li><a href="mission.html">Our Mission</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="donate.html" class="nav-cta">Donate</a></li>
+  </ul>
+</nav>
+
 <section class="story-hero">
-  <div class="story-hero-content">
-    <div class="section-eyebrow" style="margin-bottom:24px;">
-      <div class="section-eyebrow-line"></div>
-      <span style="color:rgba(255,255,255,0.4);">Tom's Story</span>
-    </div>
-    <h1>He Nearly<br>Didn't<br><em>Make It.</em></h1>
-    <p class="story-hero-lead">Two-time Olympic gold medalist. One of the most decorated butterfly swimmers in American history. And someone who, in 2018, attempted suicide. This is Tom's story — and why he refuses to stay silent.</p>
+  <div>
+    <div class="eyebrow eyebrow-white anim anim-1"><div class="eyebrow-line"></div><span>Tom's Story</span></div>
+    <h1 class="anim anim-2">He Nearly<br>Didn't<br><em>Make It.</em></h1>
+    <p class="story-hero-lead anim anim-3">Two-time Olympic gold medalist. One of the most decorated butterfly swimmers in American history. And someone who, in 2018, attempted suicide. This is Tom's story — and why he refuses to stay silent.</p>
   </div>
-  <div class="story-hero-image">
-    <span class="photo-placeholder">PHOTO OF TOM</span>
-  </div>
+  <div class="story-hero-img anim anim-2"><span>PHOTO OF TOM</span></div>
 </section>
 
-<!-- PULL QUOTE -->
-<div class="pull-quote-strip">
+<div class="pull-quote">
   <blockquote>"I went public not because it was easy, but because I believed silence was costing lives."</blockquote>
 </div>
 
-<!-- NARRATIVE -->
-<section class="narrative-section">
+<section class="narrative">
   <div class="narrative-body">
     <h2>The Weight No One Saw</h2>
-    <p>
-      For years, Tom Shields carried it quietly. The pressure of building an identity entirely around athletic performance. The fear of failure. The insomnia that came in waves. The depression that no one on the pool deck could see because elite athletes aren't supposed to struggle — they're supposed to perform.
-    </p>
-    <p>
-      Tom was one of the fastest butterfly swimmers on the planet. He was also one of the loneliest people in a room full of people who thought they knew him.
-    </p>
-    <p>
-      <strong>"You learn early that showing weakness is dangerous,"</strong> Tom has said. "In elite sport, everything is about mental toughness. Nobody tells you what to do when your mind turns against you."
-    </p>
+    <p>For years, Tom Shields carried it quietly. The pressure of building an identity entirely around athletic performance. The fear of failure. The insomnia that came in waves. The depression that no one on the pool deck could see because elite athletes aren't supposed to struggle — they're supposed to perform.</p>
+    <p>Tom was one of the fastest butterfly swimmers on the planet. He was also one of the loneliest people in a room full of people who thought they knew him.</p>
+    <p><strong>"You learn early that showing weakness is dangerous."</strong> In elite sport, everything is about mental toughness. Nobody tells you what to do when your mind turns against you.</p>
 
-    <h2>The Night Everything Changed</h2>
-    <p>
-      In late 2018, after years of silent struggle, Tom hit his lowest point. He attempted suicide.
-    </p>
-    <p>
-      He survived because his wife, Gianna, turned around on her commute home after something told her to call. That phone call saved his life.
-    </p>
-    <p>
-      It wasn't a therapist. It wasn't a crisis hotline. It was one person who paid attention — one connection that cut through the silence at exactly the right moment.
-    </p>
+    <h2>The Morning Everything Changed</h2>
+    <p>In late 2018, after years of silent struggle, Tom hit his lowest point. One morning, he attempted suicide.</p>
+    <p>He survived because his wife, Gianna, was on her way to work when something told her to turn around and call. That phone call saved his life.</p>
+    <p>It wasn't a therapist. It wasn't a crisis hotline. It was one person who paid attention — one connection that cut through the silence at exactly the right moment.</p>
 
     <h2>Going Public</h2>
-    <p>
-      In December 2019, Tom made a decision that most elite athletes never make: he told the truth publicly.
-    </p>
-    <p>
-      He shared his story — not a polished version, not a recovery narrative with all the rough edges smoothed out — but the real thing. What it felt like. What led there. What brought him back.
-    </p>
-    <p>
-      The response was overwhelming. Athletes, coaches, parents, and strangers reached out to say they had been carrying the same weight. That they had never heard anyone in sport talk like this. That it made them feel less alone.
-    </p>
-    <p>
-      <strong>That response is why the Tom Shields Foundation exists.</strong>
-    </p>
+    <p>In December 2019, Tom made a decision that most elite athletes never make: he told the truth publicly.</p>
+    <p>He shared his story — not a polished version, not a recovery narrative with all the rough edges smoothed out — but the real thing. What it felt like. What led there. What brought him back.</p>
+    <p>The response was overwhelming. Athletes, coaches, parents, and strangers reached out to say they had been carrying the same weight. That they had never heard anyone in sport talk like this. That it made them feel less alone.</p>
+    <p><strong>That response is why the Tom Shields Foundation exists.</strong></p>
 
     <h2>Back at the Olympics</h2>
-    <p>
-      Tom went on to compete at the 2020 Tokyo Olympics and the 2024 Paris Olympics, earning gold medals and continuing to set records. He is one of the only elite athletes in the world to have spoken publicly about a suicide attempt and returned to compete at the highest level.
-    </p>
-    <p>
-      That story — of struggle, survival, and return — is not a footnote. It is the Foundation's most powerful asset. It opens doors that nothing else can, because it is true, because it comes from someone young athletes actually look up to, and because it refuses to make mental health something that happens to other people.
-    </p>
+    <p>Tom went on to compete at the 2020 Tokyo Olympics and the 2024 Paris Olympics, earning gold medals and continuing to set records. He is one of the only elite athletes in the world to have spoken publicly about a suicide attempt and returned to compete at the highest level.</p>
+    <p>That story opens doors that nothing else can — because it is true, because it comes from someone young athletes actually look up to, and because it refuses to make mental health something that happens to other people.</p>
   </div>
-
   <div class="narrative-sidebar">
-    <div class="sidebar-stat">
-      <div class="number">2nd</div>
-      <div class="label">Leading cause of death for Americans ages 10–34 is suicide</div>
-    </div>
-    <div class="sidebar-stat">
-      <div class="number">2018</div>
-      <div class="label">The year Tom hit his lowest point — and survived</div>
-    </div>
-    <div class="sidebar-stat">
-      <div class="number">2×</div>
-      <div class="label">Olympic gold medals earned after going public with his story</div>
-    </div>
+    <div class="sidebar-stat"><div class="num">2nd</div><div class="lbl">Leading cause of death for Americans ages 10–34 is suicide</div></div>
+    <div class="sidebar-stat"><div class="num">2018</div><div class="lbl">The year Tom hit his lowest point — and survived</div></div>
+    <div class="sidebar-stat"><div class="num">2×</div><div class="lbl">Olympic gold medals earned after going public with his story</div></div>
     <div class="sidebar-cta">
       <p>Want to bring Tom's story to your team, school, or organization?</p>
-      <a href="contact.html" class="btn-primary">Book a Workshop</a>
+      <a href="contact.html" class="btn btn-red" style="width:100%;text-align:center;">Book a Workshop</a>
     </div>
   </div>
 </section>
 
-<!-- CRISIS RESOURCES -->
-<section class="crisis-section">
+<section class="crisis">
   <div class="crisis-inner">
     <div>
       <h3>If You're Struggling Right Now</h3>
       <p>Tom's story doesn't end in crisis — but if yours feels like it might, please reach out. Help is available 24/7.</p>
     </div>
     <div class="crisis-numbers">
-      <div class="crisis-number">
-        <div class="hotline">988</div>
-        <div class="hotline-name">Suicide & Crisis Lifeline</div>
-      </div>
-      <div class="crisis-number">
-        <div class="hotline">741741</div>
-        <div class="hotline-name">Crisis Text Line</div>
-      </div>
+      <div class="crisis-num"><div class="hotline">988</div><div class="hotline-name">Suicide & Crisis Lifeline</div></div>
+      <div class="crisis-num"><div class="hotline">741741</div><div class="hotline-name">Crisis Text Line</div></div>
     </div>
   </div>
 </section>
 
-<!-- FOUNDATION BRIDGE -->
-<section class="foundation-bridge">
+<section class="bridge">
+  <div class="bridge-img"><span>PHOTO PLACEHOLDER</span></div>
   <div>
+    <div class="eyebrow"><div class="eyebrow-line"></div><span>The Foundation</span></div>
     <h2>This Is Why <span>The Foundation</span> Exists</h2>
-    <p>Too many young athletes are carrying what Tom carried — silently, alone, with no framework for what they're feeling and no permission to ask for help.</p>
-    <p>The Tom Shields Foundation delivers mental health education workshops to youth athletes and uses community swim events to fund the mission. Because the conversation that saves a life doesn't always happen in a therapist's office.</p>
+    <p class="body-text">Too many young athletes are carrying what Tom carried — silently, alone, with no framework for what they're feeling and no permission to ask for help.</p>
+    <p class="body-text">The Tom Shields Foundation delivers mental health education workshops to youth athletes and uses community swim events to fund the mission. Because the conversation that saves a life doesn't always happen in a therapist's office.</p>
     <div class="bridge-actions">
-      <a href="mission.html" class="btn-primary">Our Mission</a>
-      <a href="events.html" class="btn-outline">Upcoming Events</a>
+      <a href="mission.html" class="btn btn-red">Our Mission</a>
+      <a href="events.html" class="btn btn-outline-dark">Upcoming Events</a>
     </div>
-  </div>
-  <div class="bridge-image">
-    <span class="photo-placeholder" style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:3px;color:rgba(255,255,255,0.15);">PHOTO PLACEHOLDER</span>
   </div>
 </section>
 
-<div id="footer-placeholder"></div>
-<script src="components.js"></script>
-<script>Components.init('story');</script>
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="index.html" class="nav-logo"><span class="nav-logo-name">Tom Shields Foundation</span><span class="nav-logo-tag">Building Resilience · Changing Minds · Saving Lives</span></a>
+      <p class="footer-brand-desc">A California 501(c)(3) nonprofit delivering mental health education to youth athletes through community swim events and workshops.</p>
+      <p class="footer-contact">Santa Cruz, CA · staff@tomshieldsfoundation.org</p>
+    </div>
+    <div class="footer-col"><h4>Foundation</h4><ul><li><a href="mission.html">Our Mission</a></li><li><a href="story.html">Tom's Story</a></li><li><a href="mission.html">The Workshop</a></li><li><a href="contact.html">Leadership</a></li></ul></div>
+    <div class="footer-col"><h4>Get Involved</h4><ul><li><a href="events.html">Swim-a-Thons</a></li><li><a href="events.html">Charity Meets</a></li><li><a href="donate.html">Donate</a></li><li><a href="contact.html">Book a Workshop</a></li><li><a href="contact.html">Sponsor an Event</a></li></ul></div>
+    <div class="footer-col"><h4>Resources</h4><ul><li><a href="blog.html">Blog</a></li><li><a href="blog.html">For Coaches</a></li><li><a href="blog.html">For Parents</a></li><li><a href="contact.html">Crisis Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span class="footer-copy">© 2026 Tom Shields Foundation. All rights reserved.</span><span class="footer-501">California 501(c)(3) · Federal determination pending</span></div>
+</footer>
 </body>
 </html>
