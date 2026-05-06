@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog & Resources — Tom Shields Foundation</title>
+<meta name="description" content="Mental health resources, Tom's story, and insights from the Tom Shields Foundation for youth athletes, coaches, and parents.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .blog-hero {
+    background: var(--navy);
+    padding: 140px 80px 80px;
+    border-bottom: 3px solid var(--red);
+  }
+
+  .blog-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(60px, 7vw, 96px);
+    color: var(--white);
+    line-height: 0.95;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.3s;
+  }
+
+  .blog-hero p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 480px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.5s;
+  }
+
+  /* FEATURED */
+  .featured-post {
+    background: var(--white);
+    padding: 80px;
+  }
+
+  .featured-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    background: var(--navy);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .featured-image {
+    height: 400px;
+    background: linear-gradient(135deg, #0D1B2A, #9B0D24);
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 32px;
+  }
+
+  .featured-image-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    font-weight: 500;
+  }
+
+  .featured-content {
+    padding: 48px 48px 48px 0;
+  }
+
+  .featured-tag {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 1px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .featured-content h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 3vw, 42px);
+    color: var(--white);
+    letter-spacing: 0.5px;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+
+  .featured-content p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 28px;
+  }
+
+  .post-meta {
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  /* CATEGORIES */
+  .blog-categories {
+    background: var(--off-white);
+    padding: 0 80px;
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid var(--light-gray);
+    overflow-x: auto;
+  }
+
+  .cat-btn {
+    padding: 16px 20px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--gray);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: 'DM Sans', sans-serif;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .cat-btn.active, .cat-btn:hover {
+    color: var(--navy);
+    border-bottom-color: var(--red);
+  }
+
+  /* BLOG GRID */
+  .blog-main {
+    background: var(--off-white);
+    padding: 64px 80px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .post-card {
+    background: var(--white);
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .post-card:hover { transform: translateY(-3px); }
+
+  .post-image {
+    height: 180px;
+    position: relative;
+  }
+
+  .post-img-1 { background: linear-gradient(135deg, #0D1B2A, #1a3050); }
+  .post-img-2 { background: linear-gradient(135deg, #9B0D24, #C8102E); }
+  .post-img-3 { background: linear-gradient(135deg, #1A2E42, #0D1B2A); }
+  .post-img-4 { background: linear-gradient(135deg, #C8102E, #9B0D24); }
+  .post-img-5 { background: linear-gradient(135deg, #050d15, #1A2E42); }
+  .post-img-6 { background: linear-gradient(135deg, #0D1B2A, #C8102E); }
+
+  .post-img-label {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .post-body {
+    padding: 20px;
+  }
+
+  .post-category {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .post-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: var(--navy);
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .post-excerpt {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 12px;
+  }
+
+  .post-date {
+    font-size: 11px;
+    color: var(--light-gray);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* SIDEBAR */
+  .blog-sidebar { position: sticky; top: 100px; }
+
+  .sidebar-widget {
+    background: var(--white);
+    border-radius: 2px;
+    padding: 28px;
+    margin-bottom: 16px;
+  }
+
+  .sidebar-widget h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--navy);
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--light-gray);
+  }
+
+  .topic-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .topic-list li a {
+    font-size: 14px;
+    color: #4A5568;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 300;
+    transition: color 0.2s;
+  }
+
+  .topic-list li a:hover { color: var(--red); }
+
+  .topic-count {
+    font-size: 11px;
+    color: var(--light-gray);
+    font-weight: 500;
+  }
+
+  .audience-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .audience-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--off-white);
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s;
+    border-left: 2px solid transparent;
+  }
+
+  .audience-link:hover {
+    background: rgba(200,16,46,0.06);
+    border-left-color: var(--red);
+  }
+
+  .audience-link-icon { font-size: 18px; }
+
+  .audience-link-text {
+    font-size: 13px;
+    color: var(--navy);
+    font-weight: 500;
+  }
+
+  .newsletter-widget {
+    background: var(--navy);
+    border-radius: 2px;
+    padding: 28px;
+  }
+
+  .newsletter-widget h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: var(--white);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .newsletter-widget p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+
+  .newsletter-widget input {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 2px;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    margin-bottom: 10px;
+  }
+
+  .newsletter-widget input::placeholder { color: rgba(255,255,255,0.2); }
+  .newsletter-widget input:focus { border-color: var(--red); }
+
+  .newsletter-widget .btn-primary { width: 100%; text-align: center; padding: 12px; font-size: 12px; }
+
+  @media (max-width: 900px) {
+    .blog-hero { padding: 120px 24px 60px; }
+    .featured-post { padding: 40px 24px; }
+    .featured-inner { grid-template-columns: 1fr; }
+    .featured-image { height: 240px; }
+    .featured-content { padding: 32px; }
+    .blog-categories { padding: 0 24px; }
+    .blog-main { grid-template-columns: 1fr; padding: 40px 24px; }
+    .posts-grid { grid-template-columns: 1fr; }
+    .blog-sidebar { position: static; }
+  }
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<section class="blog-hero">
+  <div class="section-eyebrow" style="margin-bottom:20px;">
+    <div class="section-eyebrow-line"></div>
+    <span style="color:rgba(255,255,255,0.4);">Blog & Resources</span>
+  </div>
+  <h1>From the Foundation</h1>
+  <p>Stories, research, and resources on youth athlete mental health — for athletes, coaches, parents, and anyone who cares about the next generation.</p>
+</section>
+
+<!-- FEATURED -->
+<section class="featured-post">
+  <div class="featured-inner">
+    <div class="featured-image">
+      <span class="featured-image-label">Photo placeholder</span>
+    </div>
+    <div class="featured-content">
+      <span class="featured-tag">Featured</span>
+      <div class="post-meta">Tom Shields · Founder · 2026</div>
+      <h2>Why I Stopped Staying Silent — And Why More Athletes Need To</h2>
+      <p>In December 2019, I told the truth publicly for the first time. Here's what happened next — and why the response changed everything about how I think about this work.</p>
+      <a href="#" class="btn-outline-white">Read the Story</a>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<div class="blog-categories">
+  <button class="cat-btn active">All</button>
+  <button class="cat-btn">Tom's Story</button>
+  <button class="cat-btn">Mental Health</button>
+  <button class="cat-btn">For Athletes</button>
+  <button class="cat-btn">For Coaches</button>
+  <button class="cat-btn">For Parents</button>
+  <button class="cat-btn">Events</button>
+  <button class="cat-btn">Research</button>
+</div>
+
+<!-- MAIN -->
+<section class="blog-main">
+  <div class="posts-grid">
+    <div class="post-card">
+      <div class="post-image post-img-1"><span class="post-img-label">Photo</span></div>
+      <div class="post-body">
+        <div class="post-category">Mental Health</div>
+        <div class="post-title">Why Youth Athletes Are at Greater Risk — And What We Can Do</div>
+        <p class="post-excerpt">The pressure of athletic identity starts earlier than most people realize. Here's what the research says.</p>
+        <div class="post-date">2026</div>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="post-image post-img-2"><span class="post-img-label">Photo</span></div>
+      <div class="post-body">
+        <div class="post-category">For Coaches</div>
+        <div class="post-title">What Coaches Can Say When an Athlete Is Struggling</div>
+        <p class="post-excerpt">You don't need to be a therapist. You just need to know a few things to say — and what not to say.</p>
+        <div class="post-date">2026</div>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="post-image post-img-3"><span class="post-img-label">Photo</span></div>
+      <div class="post-body">
+        <div class="post-category">Events</div>
+        <div class="post-title">How Swim-a-Thons Build More Than Just Fundraising Revenue</div>
+        <p class="post-excerpt">Community events do something grants can't: they create belonging. Here's the vision behind TSF's event model.</p>
+        <div class="post-date">2026</div>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="post-image post-img-4"><span class="post-img-label">Photo</span></div>
+      <div class="post-body">
+        <div class="post-category">For Parents</div>
+        <div class="post-title">Signs Your Young Athlete May Be Struggling (And How to Start the Conversation)</div>
+        <p class="post-excerpt">Most parents don't miss the signs on purpose. They just don't know what to look for. Here's a guide.</p>
+        <div class="post-date">2026</div>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="post-image post-img-5"><span class="post-img-label">Photo</span></div>
+      <div class="post-body">
+        <div class="post-category">Research</div>
+        <div class="post-title">The Data on Youth Athlete Mental Health Is Alarming. Here's What It Says.</div>
+        <p class="post-excerpt">Suicide rates, anxiety prevalence, and why sport-specific mental health programs are so rare. The numbers don't lie.</p>
+        <div class="post-date">2026</div>
+      </div>
+    </div>
+    <div class="post-card">
+      <div class="post-image post-img-6"><span class="post-img-label">Photo</span></div>
+      <div class="post-body">
+        <div class="post-category">For Athletes</div>
+        <div class="post-title">Five Things You Can Do Right Now If You're Struggling</div>
+        <p class="post-excerpt">Practical tools from Tom's workshop — no therapist required. Things that actually work when you're in it.</p>
+        <div class="post-date">2026</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-sidebar">
+    <div class="sidebar-widget">
+      <h3>Topics</h3>
+      <ul class="topic-list">
+        <li><a href="#">Mental Health <span class="topic-count">12</span></a></li>
+        <li><a href="#">Tom's Story <span class="topic-count">8</span></a></li>
+        <li><a href="#">For Coaches <span class="topic-count">6</span></a></li>
+        <li><a href="#">For Parents <span class="topic-count">5</span></a></li>
+        <li><a href="#">For Athletes <span class="topic-count">9</span></a></li>
+        <li><a href="#">Events <span class="topic-count">4</span></a></li>
+        <li><a href="#">Research <span class="topic-count">7</span></a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-widget">
+      <h3>Resources For</h3>
+      <div class="audience-links">
+        <a href="#" class="audience-link">
+          <span class="audience-link-icon">🏊</span>
+          <span class="audience-link-text">Athletes</span>
+        </a>
+        <a href="#" class="audience-link">
+          <span class="audience-link-icon">🎽</span>
+          <span class="audience-link-text">Coaches</span>
+        </a>
+        <a href="#" class="audience-link">
+          <span class="audience-link-icon">👨‍👩‍👧</span>
+          <span class="audience-link-text">Parents</span>
+        </a>
+        <a href="#" class="audience-link">
+          <span class="audience-link-icon">🏫</span>
+          <span class="audience-link-text">Schools & Organizations</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="newsletter-widget">
+      <h3>Stay in the Loop</h3>
+      <p>New posts, event announcements, and Foundation updates — straight to your inbox.</p>
+      <input type="email" placeholder="your@email.com">
+      <a href="#" class="btn-primary">Subscribe</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="components.js"></script>
+<script>
+  Components.init('blog');
+  document.querySelectorAll('.cat-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
