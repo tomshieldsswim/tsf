@@ -126,6 +126,7 @@ footer { background: var(--navy); padding: 96px 80px 56px; }
   nav { padding: 0 20px; height: 80px; }
   .nav-links { display: none !important; }
   .nav-hamburger { display: flex !important; }
+  .nav-logo-tag { display: none; }
   .page-hero { padding: 110px 24px 56px; }
   footer { padding: 56px 24px 32px; }
   .footer-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -183,8 +184,8 @@ footer { background: var(--navy); padding: 96px 80px 56px; }
 }
 .nav-mobile-crisis .num { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--red); letter-spacing: 1px; }
 .nav-mobile-crisis .lbl { font-size: 10px; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase; }
-.nav-mobile-sub { padding-left: 16px; }
-.nav-mobile-sub a { font-size: 16px; color: rgba(255,255,255,0.5); letter-spacing: 1px; padding: 12px 0; }
+.nav-mobile-sub { padding-left: 16px; display: flex; flex-direction: column; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 0; }
+.nav-mobile-sub a { font-size: 16px; color: rgba(255,255,255,0.5); letter-spacing: 1px; padding: 12px 0; display: block; border-bottom: none; }
 
 @media (max-width: 900px) {
   .nav-hamburger { display: flex; }
