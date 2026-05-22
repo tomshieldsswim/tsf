@@ -36,7 +36,43 @@
     <li><a href="contact.html" class="active">Contact</a></li>
     <li><a href="donate.html" class="nav-cta">Donate</a></li>
   </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="nav-mobile" id="navMobile">
+  <a href="tel:988" class="nav-mobile-crisis" style="text-decoration:none;">
+    <div class="num">988</div>
+    <div class="lbl">Crisis Line</div>
+  </a>
+  <div class="nav-mobile-sub">
+    <a href="help-me.html">Help for me</a>
+    <a href="help-someone.html">Help for someone I know</a>
+    <a href="help-my-child.html">Help for my child</a>
+    <a href="help-my-athlete.html">Help for my student / athlete</a>
+  </div>
+  <a href="story.html">Tom's Story</a>
+  <a href="mission.html">Our Mission</a>
+  <a href="contact.html">Contact</a>
+  <a href="donate.html" class="nav-cta">Donate</a>
+</div>
+<script>
+  const btn = document.getElementById('hamburger');
+  const menu = document.getElementById('navMobile');
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+    menu.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  });
+  menu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      btn.classList.remove('open');
+      menu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
 
 <section class="page-hero">
   <div class="eyebrow eyebrow-white anim anim-1"><div class="eyebrow-line"></div><span>Get in Touch</span></div>
