@@ -123,7 +123,9 @@ footer { background: var(--navy); padding: 96px 80px 56px; }
 
 /* ── MOBILE ── */
 @media (max-width: 900px) {
-  nav { padding: 0 20px; }
+  nav { padding: 0 20px; height: 80px; }
+  .nav-links { display: none !important; }
+  .nav-hamburger { display: flex !important; }
   .page-hero { padding: 110px 24px 56px; }
   footer { padding: 56px 24px 32px; }
   .footer-grid { grid-template-columns: 1fr; gap: 36px; }
