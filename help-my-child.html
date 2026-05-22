@@ -7,7 +7,9 @@
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="style.css">
 <style>
-  .resource-hero { background: var(--navy); padding: 140px 80px 80px; border-bottom: 3px solid var(--red); max-width: 760px; }
+  .resource-hero { background: var(--navy); padding: 140px 80px 80px; border-bottom: 3px solid var(--red); display: grid; grid-template-columns: 1fr 380px; gap: 48px; align-items: center; }
+  .resource-hero-text { }
+  @media (max-width: 900px) { .resource-hero { grid-template-columns: 1fr; padding: 110px 24px 56px; } }
   .resource-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 6vw, 80px); color: var(--white); line-height: 0.95; letter-spacing: 1px; margin-bottom: 20px; }
   .resource-hero h1 em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--red); }
   .resource-hero p { font-size: 18px; color: rgba(255,255,255,0.6); line-height: 1.75; font-weight: 300; max-width: 580px; }
@@ -51,9 +53,21 @@
 </nav>
 
 <section class="resource-hero">
+  <div class="resource-hero-text">
   <div class="eyebrow eyebrow-white"><div class="eyebrow-line"></div><span>Tom Shields Foundation</span></div>
   <h1>You're Asking<br>the <em>Right Questions.</em></h1>
   <p>Parenting an athlete means watching your kid push through things most people never attempt. It also means sometimes not knowing when the pushing has gone too far inside.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;justify-content:center;padding:40px;">
+    <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:2px;padding:32px 28px;">
+      <h4 style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--white);letter-spacing:1px;margin-bottom:10px;">If you're worried right now</h4>
+      <p style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6;font-weight:300;margin-bottom:20px;">If you believe your child is in immediate danger, call 988 or go to your nearest emergency room.</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <a href="tel:988" style="background:var(--red);color:var(--white);padding:14px 20px;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;border-radius:2px;text-decoration:none;">Call 988</a>
+        <a href="sms:741741" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.65);padding:14px 20px;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;border-radius:2px;text-decoration:none;">Text 741741</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="resource-body">
