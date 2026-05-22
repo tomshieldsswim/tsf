@@ -81,10 +81,10 @@
   .event-small .event-desc { color: var(--gray); font-size: 13px; margin-bottom: 0; }
 
   /* STATS */
-  .stats { background: var(--red); padding: 64px 80px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .stats { background: var(--red); padding: 40px 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .stat-item { text-align: center; }
-  .stat-item .num { font-family: 'Bebas Neue', sans-serif; font-size: 68px; color: var(--white); line-height: 1; margin-bottom: 8px; }
-  .stat-item .lbl { font-size: 11px; color: rgba(255,255,255,0.65); letter-spacing: 1.5px; text-transform: uppercase; line-height: 1.5; font-weight: 500; }
+  .stat-item .num { font-family: 'Bebas Neue', sans-serif; font-size: clamp(32px, 8vw, 68px); color: var(--white); line-height: 1; margin-bottom: 8px; }
+  .stat-item .lbl { font-size: clamp(8px, 1.8vw, 11px); color: rgba(255,255,255,0.65); letter-spacing: 0.5px; text-transform: uppercase; line-height: 1.4; font-weight: 500; }
 
   /* DONATE */
   .donate { background: var(--off-white); padding: 100px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
@@ -117,7 +117,7 @@
     .workshop-grid { grid-template-columns: 1fr 1fr; }
     .events { padding: 60px 24px; }
     .events-grid { grid-template-columns: 1fr; }
-    .stats { grid-template-columns: 1fr 1fr; padding: 56px 24px; }
+    .stats { grid-template-columns: repeat(3, 1fr); padding: 32px 16px; gap: 8px; }
     .donate { grid-template-columns: 1fr; padding: 60px 24px; }
     .contact-home { padding: 60px 24px; }
   }
