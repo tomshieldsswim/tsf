@@ -124,7 +124,6 @@ footer { background: var(--navy); padding: 96px 80px 56px; }
 /* ── MOBILE ── */
 @media (max-width: 900px) {
   nav { padding: 0 20px; }
-  .nav-links { display: none; }
   .page-hero { padding: 110px 24px 56px; }
   footer { padding: 56px 24px 32px; }
   .footer-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -144,3 +143,48 @@ footer { background: var(--navy); padding: 96px 80px 56px; }
 /* ── PULL QUOTE LIGHT ── */
 .pull-quote-light { background: var(--off-white); border-left: 4px solid var(--red); padding: 32px 48px; }
 .pull-quote-light blockquote { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(17px, 1.8vw, 24px); color: var(--navy); line-height: 1.5; }
+
+/* ── HAMBURGER NAV ── */
+.nav-hamburger {
+  display: none; flex-direction: column; gap: 5px; cursor: pointer;
+  padding: 8px; background: none; border: none; z-index: 300;
+}
+.nav-hamburger span {
+  display: block; width: 24px; height: 2px; background: var(--white);
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-mobile {
+  display: none; position: fixed; top: 80px; left: 0; right: 0; bottom: 0;
+  background: var(--navy); z-index: 199; flex-direction: column;
+  padding: 40px 32px; gap: 0; overflow-y: auto;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+  color: rgba(255,255,255,0.7); text-decoration: none; font-size: 22px;
+  font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px;
+  padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.2s;
+}
+.nav-mobile a:hover { color: var(--white); }
+.nav-mobile a.nav-cta {
+  color: var(--white); background: var(--red); text-align: center;
+  padding: 16px; margin-top: 24px; border-bottom: none; border-radius: 2px;
+}
+.nav-mobile-crisis {
+  display: flex; align-items: center; gap: 12px; padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-mobile-crisis .num { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--red); letter-spacing: 1px; }
+.nav-mobile-crisis .lbl { font-size: 10px; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase; }
+.nav-mobile-sub { padding-left: 16px; }
+.nav-mobile-sub a { font-size: 16px; color: rgba(255,255,255,0.5); letter-spacing: 1px; padding: 12px 0; }
+
+@media (max-width: 900px) {
+  .nav-hamburger { display: flex; }
+  .nav-links { display: none !important; }
+}
