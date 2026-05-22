@@ -21,8 +21,8 @@
   .story-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(64px, 8vw, 108px); color: var(--white); line-height: 0.9; letter-spacing: 1px; margin-bottom: 20px; }
   .story-hero h1 em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--red); display: block; }
   .story-hero-lead { font-size: 17px; color: rgba(255,255,255,0.5); line-height: 1.7; font-weight: 300; max-width: 420px; padding-bottom: 60px; }
-  .story-hero-img { background: linear-gradient(180deg, var(--navy-mid), #040b12); min-height: 480px; display: flex; align-items: center; justify-content: center; border-radius: 4px 4px 0 0; position: relative; }
-  .story-hero-img img { -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%), linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); -webkit-mask-composite: source-in; mask-image: linear-gradient(to bottom, black 60%, transparent 100%), linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%); mask-composite: intersect; }
+  .story-hero-img { background: transparent; min-height: 480px; display: flex; align-items: flex-end; justify-content: center; position: relative; overflow: visible; }
+  .story-hero-img img { width: auto; height: 520px; object-fit: contain; display: block; filter: drop-shadow(0 0 40px rgba(200,16,46,0.15)); }
   .story-hero-img span { font-family: 'Bebas Neue', sans-serif; font-size: 12px; letter-spacing: 3px; color: rgba(255,255,255,0.12); }
 
   .pull-quote { background: var(--red); padding: 44px 80px; }
@@ -145,7 +145,7 @@
     <h1 class="anim anim-2">He Nearly<br>Didn't<br><em>Make It.</em></h1>
     <p class="story-hero-lead anim anim-3">Two-time Olympic gold medalist. And someone who, in 2018, experienced a serious mental health crisis. This is Tom's story, and why he refuses to stay silent.</p>
   </div>
-  <div class="story-hero-img anim anim-2" style="overflow:hidden;border-radius:4px 4px 0 0;"><img src="tom-story.jpg" alt="Tom Shields competing" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:4px 4px 0 0;"></div>
+  <div class="story-hero-img anim anim-2"><img src="tom-cutout.png" alt="Tom Shields"></div>
 </section>
 
 <div class="pull-quote">
