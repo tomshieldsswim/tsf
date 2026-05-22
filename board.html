@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Board & Leadership — Tom Shields Foundation</title>
+<meta name="description" content="Meet the board of directors and advisors of the Tom Shields Foundation, a California 501(c)(3) nonprofit delivering mental health education to youth athletes.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .board-hero { background: var(--navy); padding: 140px 80px 80px; border-bottom: 3px solid var(--red); }
+  .board-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(56px, 7vw, 96px); color: var(--white); line-height: 0.95; letter-spacing: 1px; margin-bottom: 18px; }
+  .board-hero h1 em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--red); }
+  .board-hero p { font-size: 17px; color: rgba(255,255,255,0.5); line-height: 1.7; font-weight: 300; max-width: 520px; }
+
+  /* ── BOARD GRID ── */
+  .board-section { background: var(--white); padding: 100px 80px; }
+  .board-section + .board-section { background: var(--off-white); }
+  .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 56px; }
+  .section-label-line { width: 32px; height: 2px; background: var(--red); flex-shrink: 0; }
+  .section-label span { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--red); font-weight: 600; }
+
+  .board-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .board-grid.five-up { grid-template-columns: repeat(3, 1fr); }
+
+  .board-card { background: var(--white); overflow: hidden; position: relative; }
+  .board-card:hover .card-overlay { opacity: 1; }
+  .board-card:hover .card-img img { transform: scale(1.04); }
+
+  .card-img { aspect-ratio: 1/1; overflow: hidden; background: var(--navy-mid); position: relative; }
+  .card-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.5s ease; display: block; }
+
+  .card-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(13,27,42,0.95) 100%); opacity: 0; transition: opacity 0.35s ease; display: flex; align-items: flex-end; padding: 24px; }
+  .card-overlay-bio { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.6; font-weight: 300; }
+
+  .card-body { padding: 22px 24px 26px; border-top: 2px solid var(--off-white); }
+  .card-name { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--navy); letter-spacing: 1px; line-height: 1; margin-bottom: 6px; }
+  .card-role { font-size: 11px; color: var(--red); letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 4px; }
+  .card-title { font-size: 12px; color: var(--gray); font-weight: 300; line-height: 1.4; }
+
+  /* last row centering for 5-up (2 cards in last row) */
+  .board-grid.five-up .board-card:nth-child(4),
+  .board-grid.five-up .board-card:nth-child(5) {
+    grid-column: auto;
+  }
+  .board-grid-wrap-5 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .board-grid-row2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    max-width: 66.66%;
+    margin: 2px auto 0;
+  }
+
+  /* Advisors — 1 card, centered */
+  .advisor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .advisor-grid .board-card { background: var(--off-white); }
+  .advisor-grid .card-body { border-top-color: var(--light-gray); }
+
+  /* pull quote between sections */
+  .board-divider { background: var(--navy); padding: 48px 80px; border-top: 3px solid var(--red); border-bottom: 3px solid var(--red); }
+  .board-divider blockquote { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(16px, 1.8vw, 22px); color: rgba(255,255,255,0.6); line-height: 1.5; max-width: 720px; }
+
+  @media (max-width: 900px) {
+    .board-hero { padding: 110px 24px 56px; }
+    .board-section { padding: 64px 24px; }
+    .board-grid-wrap-5, .board-grid-row2, .advisor-grid { grid-template-columns: 1fr 1fr; max-width: 100%; margin: 0; }
+    .board-grid-row2 { grid-template-columns: 1fr 1fr; }
+    .board-divider { padding: 40px 24px; }
+  }
+  @media (max-width: 600px) {
+    .board-grid-wrap-5, .board-grid-row2, .advisor-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span class="nav-logo-name">Tom Shields Foundation</span><span class="nav-logo-tag">Building Resilience · Changing Minds · Saving Lives</span></a>
+  <ul class="nav-links">
+    <li class="nav-drop">
+      <a href="#">I Need ▾</a>
+      <div class="nav-drop-menu">
+        <a href="blog.html#help-me">Help for me</a>
+        <a href="blog.html#help-someone">Help for someone I know</a>
+        <a href="blog.html#my-child">Help for my child</a>
+      </div>
+    </li>
+    <li><a href="mission.html">Mission</a></li>
+    <li><a href="story.html">Tom's Story</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="board.html" class="active">Leadership</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="donate.html" class="nav-cta">Donate</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="board-hero">
+  <div class="eyebrow">
+    <div class="eyebrow-line"></div>
+    <span>Leadership</span>
+  </div>
+  <h1>The People<br>Behind the <em>Mission</em></h1>
+  <p>The Tom Shields Foundation is governed by a board of directors committed to transparency, mission alignment, and fiduciary integrity — and advised by practitioners at the highest levels of athlete mental health.</p>
+</section>
+
+<!-- BOARD OF DIRECTORS -->
+<section class="board-section">
+  <div class="section-label">
+    <div class="section-label-line"></div>
+    <span>Board of Directors</span>
+  </div>
+
+  <!-- Row 1: Tom, Gianna, Michael -->
+  <div class="board-grid-wrap-5">
+    <div class="board-card anim anim-1">
+      <div class="card-img">
+        <img src="tomLI.jpeg" alt="Tom Shields">
+        <div class="card-overlay"><p class="card-overlay-bio">Two-time Olympic gold medalist and one of the most decorated butterfly swimmers in American history. Tom founded TSF after going public with his mental health story in 2019 — one of the only elite athletes to speak openly about a suicide attempt and return to compete at the Olympic level.</p></div>
+      </div>
+      <div class="card-body">
+        <div class="card-role">Chair & Executive Director</div>
+        <div class="card-name">Tom Shields</div>
+        <div class="card-title">2× Olympic Gold Medalist · Founder</div>
+      </div>
+    </div>
+
+    <div class="board-card anim anim-2">
+      <div class="card-img">
+        <img src="ggLI.jpeg" alt="Gianna Shields">
+        <div class="card-overlay"><p class="card-overlay-bio">Doctoral candidate in Educational Leadership at SJSU. Lecturer and teacher supervisor at SF State and UC Santa Cruz. Researcher on AI-mediated learning. Executive Director of an NSF Noyce Grant. Bilingual in English and Spanish.</p></div>
+      </div>
+      <div class="card-body">
+        <div class="card-role">Secretary</div>
+        <div class="card-name">Gianna Shields</div>
+        <div class="card-title">EdD Candidate, SJSU · Lecturer, SF State & UC Santa Cruz</div>
+      </div>
+    </div>
+
+    <div class="board-card anim anim-3">
+      <div class="card-img">
+        <img src="michaelLI.jpeg" alt="Michael Gibbons">
+        <div class="card-overlay"><p class="card-overlay-bio">Attorney in private practice since 1999. Specializes in organizational governance and athletes' rights, advising entities from youth clubs to Olympic-level national governing bodies. Former member of the USA Swimming National Governance Committee. JD, William Mitchell; MBA, Seton Hall; BS, Tulane.</p></div>
+      </div>
+      <div class="card-body">
+        <div class="card-role">Treasurer</div>
+        <div class="card-name">Michael Gibbons</div>
+        <div class="card-title">Attorney · Sports & Nonprofit Governance</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2: Jack, Lucas — centered -->
+  <div class="board-grid-row2">
+    <div class="board-card anim anim-2">
+      <div class="card-img">
+        <img src="jackroachLI.jpeg" alt="Jack Roach">
+        <div class="card-overlay"><p class="card-overlay-bio">Over 35 years of coaching experience. Director of the USA Swimming National Junior Team, 2008–2016. Coached at the Olympic Games in Beijing, London, and Rio. One of the most trusted voices in American swimming. Marine Corps veteran and Purple Heart recipient.</p></div>
+      </div>
+      <div class="card-body">
+        <div class="card-role">Board Member</div>
+        <div class="card-name">Jack Roach</div>
+        <div class="card-title">USA Swimming National Team Coach · Marine Corps Veteran</div>
+      </div>
+    </div>
+
+    <div class="board-card anim anim-3">
+      <div class="card-img">
+        <img src="lucasLI.jpeg" alt="Lucas Salles-Cunha">
+        <div class="card-overlay"><p class="card-overlay-bio">Ed.D. from UNC Greensboro. President and Head Coach of Quicksilver Swimming Santa Cruz. From a coaching family that has produced two Olympic gold medalists. Nominated for ASCA Coach of the Year and ASCA Impact Coach of the Year. Career dedicated to building access to swimming in underserved communities.</p></div>
+      </div>
+      <div class="card-body">
+        <div class="card-role">Board Member</div>
+        <div class="card-name">Lucas Salles-Cunha</div>
+        <div class="card-title">Ed.D. · Head Coach, Quicksilver Swimming Santa Cruz</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="board-divider">
+  <blockquote>"The conversation that saves a life doesn't always happen in a therapist's office. Sometimes it happens in a locker room, after a talk from someone who's been there."</blockquote>
+</div>
+
+<!-- ADVISORS -->
+<section class="board-section">
+  <div class="section-label">
+    <div class="section-label-line"></div>
+    <span>Advisors</span>
+  </div>
+  <div class="advisor-grid">
+    <div class="board-card anim anim-1">
+      <div class="card-img">
+        <img src="CushLI.jpeg" alt="Alexander Cushing">
+        <div class="card-overlay"><p class="card-overlay-bio">Psychological Services Provider at the United States Olympic & Paralympic Committee. Psy.D. and Certified Mental Performance Consultant (CMPC). Works at the intersection of clinical psychology and elite athletic performance, supporting Team USA athletes across sports.</p></div>
+      </div>
+      <div class="card-body">
+        <div class="card-role">Mental Health Advisor</div>
+        <div class="card-name">Alexander Cushing</div>
+        <div class="card-title">Psy.D., CMPC · USOPC Psychological Services</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="index.html" class="nav-logo"><span class="nav-logo-name">Tom Shields Foundation</span><span class="nav-logo-tag">Building Resilience · Changing Minds · Saving Lives</span></a>
+      <p class="footer-brand-desc">A California 501(c)(3) nonprofit delivering mental health education to youth athletes through community swim events and workshops.</p>
+      <p class="footer-contact">Santa Cruz, CA · staff@tomshieldsfoundation.org</p>
+    </div>
+    <div class="footer-col"><h4>Foundation</h4><ul><li><a href="mission.html">Our Mission</a></li><li><a href="story.html">Tom's Story</a></li><li><a href="mission.html">The Workshop</a></li><li><a href="board.html">Leadership</a></li></ul></div>
+    <div class="footer-col"><h4>Get Involved</h4><ul><li><a href="events.html">Swim-a-Thons</a></li><li><a href="events.html">Charity Meets</a></li><li><a href="donate.html">Donate</a></li><li><a href="contact.html">Book a Workshop</a></li><li><a href="contact.html">Sponsor an Event</a></li></ul></div>
+    <div class="footer-col"><h4>Resources</h4><ul><li><a href="blog.html">Blog</a></li><li><a href="blog.html">For Coaches</a></li><li><a href="blog.html">For Parents</a></li><li><a href="contact.html">Crisis Resources</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Tom Shields Foundation. All rights reserved.</span>
+    <span class="footer-501">California 501(c)(3) · Federal determination pending</span>
+  </div>
+</footer>
+
+</body>
+</html>
