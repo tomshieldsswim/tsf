@@ -34,7 +34,7 @@
   .hero-bar-dot { width: 4px; height: 4px; background: rgba(255,255,255,0.4); border-radius: 50%; flex-shrink: 0; }
 
   /* MISSION */
-  .mission { background: var(--white); padding: 80px; display: grid; grid-template-columns: 1fr 1px 1fr; gap: 60px; align-items: center; }
+  .mission { background: var(--white); padding: 80px 80px 100px; display: grid; grid-template-columns: 1fr 1px 1fr; gap: 60px; align-items: center; }
   .mission-divider { background: var(--light-gray); height: 180px; }
   .mission h2 { font-family: 'Bebas Neue', sans-serif; font-size: 44px; color: var(--navy); letter-spacing: 1px; margin-bottom: 18px; }
   .mission h2 span { color: var(--red); }
@@ -53,15 +53,15 @@
   .story h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 4vw, 54px); color: var(--navy); letter-spacing: 1px; margin-bottom: 20px; }
 
   /* WORKSHOP */
-  .workshop { background: var(--navy); padding: 100px 80px; }
-  .workshop h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 4vw, 56px); color: var(--white); letter-spacing: 1px; margin-bottom: 8px; }
-  .workshop > p { font-size: 15px; color: rgba(255,255,255,0.4); line-height: 1.7; font-weight: 300; max-width: 520px; margin-bottom: 48px; }
+  .workshop { background: var(--off-white); padding: 100px 80px; }
+  .workshop h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 4vw, 56px); color: var(--navy); letter-spacing: 1px; margin-bottom: 8px; }
+  .workshop > p { font-size: 15px; color: var(--gray); line-height: 1.7; font-weight: 300; max-width: 520px; margin-bottom: 48px; }
   .workshop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
-  .w-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); padding: 36px 28px; transition: background 0.3s; }
-  .w-card:hover { background: rgba(200,16,46,0.07); border-color: rgba(200,16,46,0.25); }
-  .w-num { font-family: 'Bebas Neue', sans-serif; font-size: 56px; color: rgba(200,16,46,0.18); line-height: 1; margin-bottom: 16px; }
-  .w-title { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--white); letter-spacing: 1px; margin-bottom: 10px; }
-  .w-desc { font-size: 13px; color: rgba(255,255,255,0.38); line-height: 1.65; font-weight: 300; }
+  .w-card { background: var(--white); border: 1px solid var(--light-gray); padding: 36px 28px; transition: background 0.3s, border-color 0.3s; }
+  .w-card:hover { border-color: var(--red); }
+  .w-num { font-family: 'Bebas Neue', sans-serif; font-size: 56px; color: rgba(200,16,46,0.25); line-height: 1; margin-bottom: 16px; }
+  .w-title { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--navy); letter-spacing: 1px; margin-bottom: 10px; }
+  .w-desc { font-size: 13px; color: var(--gray); line-height: 1.65; font-weight: 300; }
 
   /* EVENTS */
   .events { background: var(--white); padding: 100px 80px; }
