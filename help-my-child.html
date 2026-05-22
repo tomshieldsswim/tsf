@@ -11,7 +11,8 @@
   .resource-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 6vw, 80px); color: var(--white); line-height: 0.95; letter-spacing: 1px; margin-bottom: 20px; }
   .resource-hero h1 em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--red); }
   .resource-hero p { font-size: 18px; color: rgba(255,255,255,0.6); line-height: 1.75; font-weight: 300; max-width: 580px; }
-  .resource-body { background: var(--white); padding: 80px; max-width: 760px; }
+  .resource-body { background: var(--white); padding: 80px; display: grid; grid-template-columns: 1fr 300px; gap: 64px; align-items: start; max-width: 100%; }
+  @media (max-width: 900px) { .resource-body { grid-template-columns: 1fr; } }
   .resource-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--navy); letter-spacing: 1px; margin: 36px 0 12px; }
   .resource-body h2:first-child { margin-top: 0; }
   .resource-body p { font-size: 16px; color: #3D4A5C; line-height: 1.85; font-weight: 300; margin-bottom: 14px; }
@@ -56,6 +57,7 @@
 </section>
 
 <section class="resource-body">
+  <div>
     <h2>What to look for</h2>
     <p>Changes in sleep, appetite, or mood that last more than a couple weeks. Withdrawal from friends, family, or activities they used to love. Increased anxiety around performance or an outsized reaction to mistakes. Talking about feeling worthless, hopeless, or like a burden. Trust your instincts. You know your child.</p>
     <h2>How to start the conversation</h2>
@@ -64,14 +66,16 @@
     <p>They need to know that struggling doesn't change how you see them. That their place in the family — and on the team — isn't conditional on how they perform. That getting help is something strong people do, not something weak people need.</p>
     <h2>When to get professional help</h2>
     <p>If your child is withdrawing significantly, expressing hopelessness, or you're worried about their safety, it's time to involve a professional. Your pediatrician is a good first call. The 988 Suicide and Crisis Lifeline also has guidance for parents.</p>
-</section>
-
-<section class="crisis-box">
-  <h2>If You're Worried About Your Child Right Now</h2>
-  <p>If you believe your child is in immediate danger, call 988 or go to your nearest emergency room. You can also call 988 yourself for guidance on how to help.</p>
-  <div class="crisis-buttons">
-    <a href="tel:988" class="btn btn-red">Call 988</a>
-    <a href="sms:741741" class="btn btn-outline-white">Text 741741</a>
+  </div>
+  <div style="position:sticky;top:100px;align-self:start;">
+    <div style="background:var(--navy-mid);border:1px solid rgba(255,255,255,0.08);border-radius:2px;padding:28px 24px;">
+      <h4 style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--white);letter-spacing:1px;margin-bottom:10px;">If you're worried right now</h4>
+      <p style="font-size:13px;color:rgba(255,255,255,0.4);line-height:1.6;font-weight:300;margin-bottom:20px;">If you believe your child is in immediate danger, call 988 or go to your nearest emergency room.</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <a href="tel:988" style="background:var(--red);color:var(--white);padding:12px 20px;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;border-radius:2px;text-decoration:none;">Call 988</a>
+        <a href="sms:741741" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);padding:12px 20px;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;border-radius:2px;text-decoration:none;">Text 741741</a>
+      </div>
+    </div>
   </div>
 </section>
 
