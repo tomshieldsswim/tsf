@@ -29,9 +29,9 @@
   .stat-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-left: 3px solid var(--red); padding: 18px 24px; width: 100%; max-width: 280px; position: relative; z-index: 1; border-radius: 2px; }
   .stat-card .num { font-family: 'Bebas Neue', sans-serif; font-size: 44px; color: var(--white); line-height: 1; margin-bottom: 4px; }
   .stat-card .lbl { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.4; font-weight: 300; }
-  .hero-bar { position: absolute; bottom: 0; left: 0; right: 0; background: var(--red); padding: 13px 20px; display: flex; align-items: center; justify-content: center; gap: 40px; z-index: 10; }
-  .hero-bar span { font-family: 'Bebas Neue', sans-serif; font-size: 17px; color: var(--white); letter-spacing: 2px; }
-  .hero-bar-dot { width: 4px; height: 4px; background: rgba(255,255,255,0.4); border-radius: 50%; flex-shrink: 0; }
+  .hero-bar { position: absolute; bottom: 0; left: 0; right: 0; background: var(--red); padding: 10px 12px; display: flex; align-items: center; justify-content: center; gap: 8px; z-index: 10; flex-wrap: nowrap; }
+  .hero-bar span { font-family: 'Bebas Neue', sans-serif; font-size: clamp(9px, 2.8vw, 17px); color: var(--white); letter-spacing: 0.5px; white-space: nowrap; }
+  .hero-bar-dot { width: 3px; height: 3px; background: rgba(255,255,255,0.4); border-radius: 50%; flex-shrink: 0; display: none; }
 
   /* MISSION */
   .mission { background: var(--white); padding: 80px 80px 100px; display: grid; grid-template-columns: 1fr 1px 1fr; gap: 60px; align-items: center; }
@@ -108,7 +108,7 @@
     .hero { grid-template-columns: 1fr; }
     .hero-left { padding: 60px 24px 90px; }
     .hero-right { display: none; }
-    .hero-bar { padding: 13px 24px; gap: 20px; }
+    .hero-bar { padding: 10px 12px; gap: 8px; }
     .mission { grid-template-columns: 1fr; padding: 60px 24px; }
     .mission-divider { display: none; }
     .story { grid-template-columns: 1fr; padding: 60px 24px; gap: 48px; }
