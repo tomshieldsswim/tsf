@@ -11,7 +11,8 @@
   .resource-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 6vw, 80px); color: var(--white); line-height: 0.95; letter-spacing: 1px; margin-bottom: 20px; }
   .resource-hero h1 em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--red); }
   .resource-hero p { font-size: 18px; color: rgba(255,255,255,0.6); line-height: 1.75; font-weight: 300; max-width: 580px; }
-  .resource-body { background: var(--white); padding: 80px; max-width: 760px; }
+  .resource-body { background: var(--white); padding: 80px; display: grid; grid-template-columns: 1fr 300px; gap: 64px; align-items: start; max-width: 100%; }
+  @media (max-width: 900px) { .resource-body { grid-template-columns: 1fr; } }
   .resource-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--navy); letter-spacing: 1px; margin: 36px 0 12px; }
   .resource-body h2:first-child { margin-top: 0; }
   .resource-body p { font-size: 16px; color: #3D4A5C; line-height: 1.85; font-weight: 300; margin-bottom: 14px; }
@@ -56,6 +57,7 @@
 </section>
 
 <section class="resource-body">
+  <div>
     <h2>The deck is a hard place to ask for help</h2>
     <p>Elite sport culture rewards stoicism and punishes vulnerability. Your athletes have learned — from you, from their peers, from the sport itself — that struggling is something you hide. Changing that culture starts with you making it safe to say something.</p>
     <h2>Signs to watch for</h2>
@@ -64,14 +66,16 @@
     <p>You don't need to be a therapist. You need to be a human. Pull them aside and say: "Hey, I've noticed you seem like you're not yourself lately. I'm not here to talk about your times. I just want to check in." Then listen. You don't have to solve it. You have to start the conversation.</p>
     <h2>Your role and its limits</h2>
     <p>Your job is to notice and refer, not to treat. If an athlete discloses something serious, take it seriously. Contact a school counselor, parent, or mental health professional. If you believe they are in immediate danger, call 988 or emergency services. Document what was said and what steps you took.</p>
-</section>
-
-<section class="crisis-box">
-  <h2>If You're Worried About an Athlete Right Now</h2>
-  <p>If you believe an athlete is in immediate danger, call 988 or emergency services. You can also call 988 yourself for guidance on how to support someone who is struggling.</p>
-  <div class="crisis-buttons">
-    <a href="tel:988" class="btn btn-red">Call 988</a>
-    <a href="sms:741741" class="btn btn-outline-white">Text 741741</a>
+  </div>
+  <div style="position:sticky;top:100px;align-self:start;">
+    <div style="background:var(--navy-mid);border:1px solid rgba(255,255,255,0.08);border-radius:2px;padding:28px 24px;">
+      <h4 style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--white);letter-spacing:1px;margin-bottom:10px;">If an athlete needs help right now</h4>
+      <p style="font-size:13px;color:rgba(255,255,255,0.4);line-height:1.6;font-weight:300;margin-bottom:20px;">If you believe an athlete is in immediate danger, call 988 or emergency services.</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <a href="tel:988" style="background:var(--red);color:var(--white);padding:12px 20px;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;border-radius:2px;text-decoration:none;">Call 988</a>
+        <a href="sms:741741" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);padding:12px 20px;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;border-radius:2px;text-decoration:none;">Text 741741</a>
+      </div>
+    </div>
   </div>
 </section>
 
