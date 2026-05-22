@@ -31,7 +31,8 @@
   .stat-card .lbl { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.4; font-weight: 300; }
   .hero-bar { position: absolute; bottom: 0; left: 0; right: 0; background: var(--red); padding: 10px 12px; display: flex; align-items: center; justify-content: center; gap: 8px; z-index: 10; flex-wrap: nowrap; }
   .hero-bar span { font-family: 'Bebas Neue', sans-serif; font-size: clamp(9px, 2.8vw, 17px); color: var(--white); letter-spacing: 0.5px; white-space: nowrap; }
-  .hero-bar-dot { width: 3px; height: 3px; background: rgba(255,255,255,0.4); border-radius: 50%; flex-shrink: 0; display: none; }
+  .hero-bar-dot { width: 3px; height: 3px; background: rgba(255,255,255,0.4); border-radius: 50%; flex-shrink: 0; }
+  @media (max-width: 600px) { .hide-mobile { display: none !important; } }
 
   /* MISSION */
   .mission { background: var(--white); padding: 80px 80px 100px; display: grid; grid-template-columns: 1fr 1px 1fr; gap: 60px; align-items: center; }
